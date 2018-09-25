@@ -1,0 +1,11 @@
+<div class="d-block">
+  <canvas *ngIf="data?.datasets" baseChart
+          width="2" height="1" 
+          [chartType]="'bar'" 
+          [datasets]="data?.datasets" 
+          [options]="{ responsive: true, maintainAspectRatio: false }"
+          [labels]="data?.labels" 
+          [legend]="data?.legend" 
+          [colors]="data?.colors"></canvas>
+  <span *ngIf="!data?.datasets">loading...</span>
+</div>

@@ -1,0 +1,157 @@
+<div class="container-fluid d-flex flex-column" [style.min-height]="'100vh'">
+  <div class="row d-flex justify-content-center justify-content-md-end flex-1 row-bg-gradient">
+
+    <div class="col col-sm-8 col-md-8 col-lg-8 col-xl-7 col d-flex flex-column py-3 bg-white" style="max-width:650px">
+      <div class="flex-1">
+
+        <h1 class="border-bottom pb-3 text-primary">Registrar</h1>
+
+        <form [formGroup]="form" (ngSubmit)="form.valid && submit(form.value)">
+
+          <div class="row form-row">
+
+            <div class="col-12 col-md-8">
+              <div class="form-group">
+                <label for="fullName">Nome completo <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" formControlName="fullName" id="fullName" />
+                <small class="form-error" *ngFor="let e of getErrors(fullName)">{{e + ' '}}</small>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+              <div class="form-group">
+                <label for="birthDate">Data de nascimento <span class="text-danger">*</span></label>
+                <input type="date" class="form-control" formControlName="birthDate" id="birthDate" />
+                <small class="form-error" *ngFor="let e of getErrors(birthDate)">{{e + ' '}}</small>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-8">
+              <div class="form-group">
+                <label for="email">E-mail <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" formControlName="email" id="email" />
+                <small class="form-error" *ngFor="let e of getErrors(email)">{{e + ' '}}</small>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+              <div class="form-group">
+                <label for="zipCode">Cep <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" formControlName="zipCode" id="zipCode" />
+                <small class="form-error" *ngFor="let e of getErrors(zipCode)">{{e + ' '}}</small>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="form-group">
+                <label for="streetName">Rua <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" formControlName="streetName" id="streetName" />
+                <small class="form-error" *ngFor="let e of getErrors(streetName)">{{e + ' '}}</small>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-5">
+              <div class="form-group">
+                <label for="number">Número <span class="text-danger">*</span></label>
+                <input type="number" class="form-control" formControlName="number" id="number" />
+                <small class="form-error" *ngFor="let e of getErrors(number)">{{e + ' '}}</small>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-7">
+              <div class="form-group">
+                <label for="complement">Complemento</label>
+                <input type="text" class="form-control" formControlName="complement" id="complement" />
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <div class="form-group">
+                <label for="neighbourhood">Bairro</label>
+                <input type="text" class="form-control" formControlName="neighbourhood" id="neighbourhood" />
+                <small class="form-error" *ngFor="let e of getErrors(neighbourhood)">{{e + ' '}}</small>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <div class="form-group">
+                <label for="city">Cidade</label>
+                <input type="text" class="form-control" formControlName="city" id="city" />
+                <small class="form-error" *ngFor="let e of getErrors(city)">{{e + ' '}}</small>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <div class="form-group">
+                <label for="state">Estado</label>
+                <input type="text" class="form-control" formControlName="state" id="state" />
+                <small class="form-error" *ngFor="let e of getErrors(state)">{{e + ' '}}</small>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <div class="form-group">
+                <label for="country">País</label>
+                <select class="form-control" formControlName="country" id="country">
+                  <option value="" disabled selected>selecione o país</option>
+                  <option value="AR">Argentina</option>
+                  <option value="BR">Brasil</option>
+                  <option value="CL">Chile</option>
+                  <option value="CO">Colômbia</option>
+                  <option value="CR">Costa Rica</option>
+                  <option value="CU">Cuba</option>
+                  <option value="DO">República Dominicana</option>
+                  <option value="EC">Equador</option>
+                  <option value="FR">França</option>
+                  <option value="GF">Guiana Francesa</option>
+                  <option value="GT">Guatemala</option>
+                  <option value="HN">Honduras</option>
+                  <option value="HT">Haiti</option>
+                  <option value="IT">Itália</option>
+                  <option value="JM">Jamaica</option>
+                  <option value="MX">México</option>
+                  <option value="NI">Nicarágua</option>
+                  <option value="PA">Panamá</option>
+                  <option value="PE">Peru</option>
+                  <option value="PR">Porto Rico</option>
+                  <option value="PY">Paraguai</option>
+                  <option value="SV">El Salvador</option>
+                  <option value="US">Estados Unidos</option>
+                  <option value="UY">Uruguai</option>
+                  <option value="VE">Venezuela</option>
+                </select>
+                <small class="form-error" *ngFor="let e of getErrors(country)">{{e + ' '}}</small>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <div class="form-group mb-0">
+                <label for="password">Senha <span class="text-danger">*</span></label>
+                <input type="password" class="form-control" formControlName="password" id="password" />
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <div class="form-group mb-0">
+                <label for="passwordConfirmation">Repita a senha <span class="text-danger">*</span></label>
+                <input type="password" class="form-control" formControlName="passwordConfirmation" id="passwordConfirmation" />
+              </div>
+            </div>
+
+            <div class="col-12 mb-3">
+              <small class="form-error" *ngFor="let e of getErrors(password, passwordConfirmation)">{{e + ' '}}</small>
+            </div>
+
+          </div>
+
+          <div class="form-group text-right pt-2">
+            <button type="submit" class="btn btn-primary" (click)="form.submitted=true" id="submit">Registrar</button>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+</div>

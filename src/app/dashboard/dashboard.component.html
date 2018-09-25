@@ -1,0 +1,58 @@
+<div class="wrapper d-flex w-100 h-min-100">
+
+  <div class="sidebar" [ngClass]="{'mdWidth': !mdWidth, 'active': !!active}">
+    <div class="backdrop animated fadeIn" [hidden]="!active" (click)="active=!active"></div>
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col py-5 text-center">
+            <img src="assets/improving-logo.png" alt="improving logo" class="img-fluid">
+          </div>
+        </div>
+      </div>
+      <div class="list-group list-group-flush border-bottom">
+        <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" *ngFor="let icon of icons;">
+          <span [innerHTML]="renderIcon(icon)" [style.width]="'40px'"></span>
+          <span class="flex-1 text-dots">Menu {{icon?.symbol}}</span>
+          <span [innerHTML]="renderIcon(arrowRight)"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="main flex-1 border-left">
+
+    <nav class="navbar sticky-top navbar-light bg-light border-bottom">
+      <a class="navbar-brand border btn px-3 d-block d-md-none" (click)="active=!active">
+        <span [innerHTML]="renderIcon(arrowMenu)"></span>
+      </a>
+      <div class="ml-auto ml-md-0 mr-auto navbar-text text-primary">Dashboard</div>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <button id="tableMode" class="btn btn-primary" (click)="tableMode=!tableMode">
+            {{ !!tableMode ? 'Show Graph' : 'Show Tables' }}
+          </button>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container-fluid flex-1 py-3">
+      <div class="row">
+
+        <div class="col-12">
+          <h4 class="pb-3 text-primary">Hits By Browser</h4>
+          <app-graph *ngIf="!tableMode" [data]="getGraphBrowsers()"></app-graph>
+          <app-table *ngIf="!!tableMode" [data]="getTableBrowsers()"></app-table>
+        </div>
+
+        <div class="col-12">
+          <h4 class="pb-3 text-primary">City Temperatures</h4>
+          <app-graph *ngIf="!tableMode" [data]="getGraphCities()"></app-graph>
+          <app-table *ngIf="!!tableMode" [data]="getTableCities()"></app-table>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

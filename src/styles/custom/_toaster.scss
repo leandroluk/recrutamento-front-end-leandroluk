@@ -1,0 +1,29 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/variables';
+@import '~angular2-toaster/src/toaster';
+
+#toast-container {
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+
+  >div {
+    box-shadow: none;
+    padding: 8px 12px 9px 12px;
+    border-radius: 0.5rem;
+    position: relative;
+
+    &:hover {
+      box-shadow: none !important
+    }
+
+    .toaster-icon {
+      display: none !important;
+    }
+
+    .toast-content {
+      width: 100%;
+    }
+  }
+}

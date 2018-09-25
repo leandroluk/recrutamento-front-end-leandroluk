@@ -1,0 +1,18 @@
+<div class="table-responsive">
+  <div *ngIf="!data">loading...</div>
+  <table class="table table-sm table-striped" *ngIf="!!data">
+    <thead *ngIf="data?.head">
+      <tr>
+        <th *ngFor="let col of data?.head">{{col}}</th>
+      </tr>
+    </thead>
+    <caption *ngIf="!data?.body">
+      <span>no content here</span>
+    </caption>
+    <tbody *ngIf="data?.body">
+      <tr *ngFor="let row of data?.body">
+        <td *ngFor="let col of row">{{col}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

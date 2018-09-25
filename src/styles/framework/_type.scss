@@ -1,0 +1,12 @@
+@import '~bootstrap/scss/_type';
+
+/**
+ * Extend typography classes
+ */
+
+.text-dots {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+}

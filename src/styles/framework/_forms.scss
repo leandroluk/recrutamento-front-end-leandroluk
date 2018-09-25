@@ -1,0 +1,9 @@
+@import '~bootstrap/scss/_variables';
+@import '~bootstrap/scss/_forms';
+@import '~animatewithsass/_properties';
+@import '~animatewithsass/_fading-entrances/_fadeInDown';
+
+.form-error {
+  color: $danger;
+  @include fadeInDown();
+}

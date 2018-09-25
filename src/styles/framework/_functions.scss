@@ -1,0 +1,9 @@
+@import '~bootstrap/scss/_functions';
+
+/*
+ * Special functions
+ */
+
+@function colorPalette($color) {
+    @return (lighten($color, 10%), $color, darken($color));
+}

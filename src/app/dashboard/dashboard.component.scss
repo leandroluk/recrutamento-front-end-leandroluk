@@ -1,0 +1,66 @@
+@import '~animatewithsass/_properties';
+@import '~animatewithsass/_fading-entrances/_fadeIn';
+
+:host {
+  .sidebar {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
+    transition: margin-left 0.2s ease-in-out;
+    margin-left: 0;
+    min-height: 100vh;
+    width: 300px;
+    z-index: 2;
+
+    &.mdWidth {
+      margin-left: -300px;
+
+      &.active {
+        margin-left: 0;
+
+        .backdrop {
+          display: block;
+        }
+      }
+    }
+
+    .backdrop {
+      @include fadeIn($duration: 0.5s);
+      transition: all 0.2s ease-in-out;
+      display: none;
+      z-index: -1;
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, .25);
+    }
+
+    .content {
+      flex: 1;
+      background-color: white;
+    }
+  }
+
+  .main {
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
+    z-index: 0;
+    position: relative;
+
+    .navbar-brand {
+      span {
+        display: block;
+        margin: -2px 0 2px 0;
+      }
+    }
+  }
+}
